@@ -64,14 +64,13 @@ def handle_events():
 grass = None
 running = True
 team = None
-boy_cnt = 1
 
 # 초기화
 def enter():
-    global  grass, running, team
+    global grass, running, team
     #boy = Boy()
     grass = Grass()
-    team = [Boy() for i in range(boy_cnt)]
+    team = [Boy()]
     # running = True
 
 # 종료
@@ -83,7 +82,7 @@ def exit():
     
 # 월드에 존재하는 객체들을 업데이트
 def update():
-    global team, boy_cnt
+    global team
     for boy in team:
         boy.update()
     # grass 는 update x

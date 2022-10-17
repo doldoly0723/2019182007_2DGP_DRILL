@@ -41,16 +41,14 @@ def handle_events():
                 case pico2d.SDLK_ESCAPE:    #이전 상태인 play_state로 복귀
                     game_framework.pop_state()
                 case pico2d.SDLK_j:
-                    if play_state.boy_cnt > 1:
-                        play_state.boy_cnt -= 1
-                    play_state.update()
-                    #game_framework.pop_state()
-                    game_framework.change_state(play_state)
+                    if len(play_state.team) > 1:
+                        del play_state.team[len(play_state.team)-1]
+                    game_framework.pop_state()
+                    #game_framework.change_state(play_state)
                 case pico2d.SDLK_k:
-                    play_state.boy_cnt += 1
-                    play_state.update()
-                    #game_framework.pop_state()
-                    game_framework.change_state(play_state)
+                    play_state.team += [play_state.Boy()]
+                    game_framework.pop_state()
+                    #game_framework.change_state(play_state)
 
 
 
