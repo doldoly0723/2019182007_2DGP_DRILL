@@ -4,6 +4,7 @@ import game_world
 
 from grass import Grass
 from boy import Boy
+from back_grass import Back_Grass
 
 boy = None
 
@@ -23,9 +24,11 @@ def enter():
     global boy
     boy = Boy()
     grass = Grass()
-    game_world.add_object(boy,1)
-    game_world.add_object(grass,0)
+    back_grass = Back_Grass()
 
+    game_world.add_object(boy,1)
+    game_world.add_object(grass,2)
+    game_world.add_object(back_grass,0)
 # 종료
 def exit():
     game_world.clear()
